@@ -223,17 +223,17 @@ void mainWindow::tentative()
             couleur3->setPixmap(QPixmap(listeCheminsCouleurs[couleursEntreesInt[2]-1]));
             couleur4->setPixmap(QPixmap(listeCheminsCouleurs[couleursEntreesInt[3]-1]));
 
-            QHBoxLayout *bite;
-            bite = new QHBoxLayout;
-            bite->addWidget(couleur1);
-            bite->addWidget(couleur2);
-            bite->addWidget(couleur3);
-            bite->addWidget(couleur4);
+            QHBoxLayout *hbl;
+            hbl = new QHBoxLayout;
+            hbl->addWidget(couleur1);
+            hbl->addWidget(couleur2);
+            hbl->addWidget(couleur3);
+            hbl->addWidget(couleur4);
 
             QLabel *indice;
             indice = new QLabel;
 
-            grille->addLayout(bite, tour+2, 0, Qt::AlignRight);
+            grille->addLayout(hbl, tour+2, 0, Qt::AlignRight);
 
             if(nbChiffresBienPlaces(combi)==4)
             {
@@ -337,13 +337,13 @@ int mainWindow::nbChiffresBienPlaces(QString tentative)
 }
 bool mainWindow::aucunDoublon(QString tentative)
 {
-    bool bi=false;
+    bool check=false;
     if(tentative[0]!=tentative[1] && tentative[0]!=tentative[2] && tentative[0]!=tentative[3] && tentative[1]!=tentative[2] && tentative[1]!=tentative[3] && tentative[2]!=tentative[3])
     {
-        bi=true;
+        check=true;
     }
 
-    return bi;
+    return check;
 }
 void mainWindow::ouvrirFenetreAide()
 {
